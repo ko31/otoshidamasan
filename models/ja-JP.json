@@ -1,0 +1,44 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "お年玉さん",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "GetOtoshidamaIntent",
+          "slots": [],
+          "samples": [
+            "お年玉",
+            "お年玉ください",
+            "お年玉をください",
+            "お年玉おくれ",
+            "お年玉をおくれ",
+            "お年玉ちょうだい",
+            "お年玉をちょうだい",
+            "お年玉欲しい",
+            "お年玉が欲しい",
+            "お年玉を欲しい",
+            "お年玉だして",
+            "お年玉をだして"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        }
+      ],
+      "types": []
+    }
+  }
+}
