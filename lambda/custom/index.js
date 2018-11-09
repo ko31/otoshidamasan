@@ -1,19 +1,16 @@
-/* eslint-disable  func-names */
-/* eslint-disable  no-console */
-
 const Alexa = require('ask-sdk-core');
 
 const SKILL_NAME = "お年玉さん";
-const HELP_MESSAGE = "通ってもいいか聞きたい時は「通ってもいい」と、終わりたい時は「おしまい」と言ってください。どうしますか？";
-const HELP_REPROMPT = "どうしますか？";
 const FALLBACK_MESSAGE = "";
 const FALLBACK_REPROMPT = "";
+const ERROR_MESSAGE = "ごめんなさい。何か問題がおきました。";
 const STOP_MESSAGE = "さようなら";
 
-const data = [
-    "勾玉",
-    "逆玉",
-    "棒玉"
+const data = require('./data');
+
+const sounds = [
+    "<audio src='soundbank://soundlibrary/foley/amzn_sfx_jar_on_table_1x_01'/>",
+    "<audio src='soundbank://soundlibrary/foley/amzn_sfx_object_on_table_2x_01'/>"
 ];
 
 const GetOtoshidamaHandler = {
@@ -24,26 +21,13 @@ const GetOtoshidamaHandler = {
           && request.intent.name === 'GetOtoshidamaIntent');
     },
     handle(handlerInput) {
-      const randomFact = data[Math.floor(Math.random() * data.length)];
-      const speechOutput = randomFact;
+      const randomData = data.value[Math.floor(Math.random() * data.value.length)];
+      const randomSound = sounds[Math.floor(Math.random() * sounds.length)];
+      const speechOutput = '<say-as interpret-as="interjection">あけましておめでとうございます。</say-as><break time="1000ms"/>あなたのお年玉は？<break time="1000ms"/>' + randomSound + randomData + 'でした。<break time="500ms"/><say-as interpret-as="interjection">いかがでしたか？</say-as>';
   
       return handlerInput.responseBuilder
         .speak(speechOutput)
-        .withSimpleCard(SKILL_NAME, randomFact)
-        .getResponse();
-    },
-  };
-  
-  const HelpHandler = {
-    canHandle(handlerInput) {
-      const request = handlerInput.requestEnvelope.request;
-      return request.type === 'IntentRequest'
-        && request.intent.name === 'AMAZON.HelpIntent';
-    },
-    handle(handlerInput) {
-      return handlerInput.responseBuilder
-        .speak(HELP_MESSAGE)
-        .reprompt(HELP_REPROMPT)
+        .withSimpleCard(SKILL_NAME, randomData)
         .getResponse();
     },
   };
@@ -96,8 +80,8 @@ const GetOtoshidamaHandler = {
       console.log(`Error handled: ${error.message}`);
   
       return handlerInput.responseBuilder
-        .speak('Sorry, an error occurred.')
-        .reprompt('Sorry, an error occurred.')
+        .speak(ERROR_MESSAGE)
+        .reprompt(ERROR_MESSAGE)
         .getResponse();
     },
   };
@@ -107,7 +91,6 @@ const GetOtoshidamaHandler = {
   exports.handler = skillBuilder
     .addRequestHandlers(
       GetOtoshidamaHandler,
-      HelpHandler,
       ExitHandler,
       FallbackHandler,
       SessionEndedRequestHandler
