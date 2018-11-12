@@ -1,6 +1,6 @@
 const Alexa = require('ask-sdk-core');
 
-const SKILL_NAME = "お年玉さん";
+const SKILL_NAME = "お年玉ガチャ";
 const FALLBACK_MESSAGE = "";
 const FALLBACK_REPROMPT = "";
 const ERROR_MESSAGE = "ごめんなさい。何か問題がおきました。";
@@ -21,9 +21,10 @@ const GetOtoshidamaHandler = {
           && request.intent.name === 'GetOtoshidamaIntent');
     },
     handle(handlerInput) {
+      const preSound = "<audio src='soundbank://soundlibrary/magic/amzn_sfx_fairy_melodic_chimes_01'/>";
       const randomData = data.value[Math.floor(Math.random() * data.value.length)];
       const randomSound = sounds[Math.floor(Math.random() * sounds.length)];
-      const speechOutput = '<say-as interpret-as="interjection">あけましておめでとうございます。</say-as><break time="1000ms"/>あなたのお年玉は？<break time="1000ms"/>' + randomSound + randomData + 'でした。<break time="500ms"/><say-as interpret-as="interjection">いかがでしたか？</say-as>';
+      const speechOutput = '<say-as interpret-as="interjection">あけましておめでとうございます。</say-as><break time="1000ms"/>あなたのお年玉は？<break time="1000ms"/>' + preSound + randomSound + randomData + 'でした。<break time="500ms"/><say-as interpret-as="interjection">いかがでしたか？</say-as>';
   
       return handlerInput.responseBuilder
         .speak(speechOutput)

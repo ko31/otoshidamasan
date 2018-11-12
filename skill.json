@@ -3,24 +3,25 @@
     "publishingInformation": {
       "locales": {
         "ja-JP": {
-          "summary": "お年玉さんがあなたにお年玉をくれます。さて、あなたはいったい何玉がもらえるでしょうか？",
+          "summary": "お年玉ガチャ引いてお年玉をもらいましょう！さて、あなたはいったい何玉がもらえるでしょうか？",
           "examplePhrases": [
-            "アレクサ、お年玉さんを開いて",
-            "アレクサ、お年玉さんを始めて",
-            "アレクサ、お年玉さん"
+            "アレクサ、お年玉ガチャを開いて",
+            "アレクサ、お年玉ガチャを始めて",
+            "アレクサ、お年玉ガチャ"
           ],
           "keywords": [
             "お年玉",
-            "お正月"
+            "お正月",
+            "ガチャ"
           ],
           "smallIconUri": "https://s3-ap-northeast-1.amazonaws.com/gosign-alexa-assets/otoshidama/icon_small.png",
           "largeIconUri": "https://s3-ap-northeast-1.amazonaws.com/gosign-alexa-assets/otoshidama/icon_large.png",
-          "name": "お年玉さん",
-          "description": "お年玉さんがあなたにお年玉をくれるスキルです。\nただし、お年玉と言ってももらえるのはすべて「玉」が付くものばかり・・・。\nさて、あなたはいったい何玉がもらえるでしょうか？\n\nこのスキルを始めるには、\n\"アレクサ、お年玉さんを開いて\"\n\"アレクサ、お年玉さんを始めて\"\n\"アレクサ、お年玉さん\"\nのように話しかけてみてください。"
+          "name": "お年玉ガチャ",
+          "description": "お年玉ガチャを引いてお年玉がもらえるスキルです。\nただし、お年玉と言ってももらえるのはすべて「玉」が付くものばかり・・・。\nさて、あなたはいったい何玉がもらえるでしょうか？\n\nこのスキルを始めるには、\n\"アレクサ、お年玉ガチャを開いて\"\n\"アレクサ、お年玉ガチャを始めて\"\n\"アレクサ、お年玉ガチャ\"\nのように話しかけてみてください。"
         }
       },
       "isAvailableWorldwide": false,
-      "testingInstructions": "1) 'アレクサ、お年玉さんを開いて'と言ってください",
+      "testingInstructions": "1) 'アレクサ、お年玉ガチャを開いて'と言ってください",
       "category": "FRIENDS_AND_FAMILY",
       "distributionCountries": [
         "JP"
