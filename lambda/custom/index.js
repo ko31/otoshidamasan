@@ -27,7 +27,7 @@ const GetOtoshidamaHandler = {
   
       return handlerInput.responseBuilder
         .speak(speechOutput)
-        .withSimpleCard(SKILL_NAME, randomData)
+        .withSimpleCard(SKILL_NAME, 'いかがでしたか？')
         .getResponse();
     },
   };
